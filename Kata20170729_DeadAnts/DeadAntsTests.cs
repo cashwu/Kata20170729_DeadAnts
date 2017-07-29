@@ -43,6 +43,12 @@ namespace Kata20170729_DeadAnts
             AssertDeadAntCountShouldBe("ant ant .... a nt", 1);
         }
 
+        [TestMethod]
+        public void ant_a_nt_t_should_be_1()
+        {
+            AssertDeadAntCountShouldBe("ant a nt t", 2);
+        }
+
         private static void AssertDeadAntCountShouldBe(string ants, int expected)
         {
             var kata = new Kata();
@@ -67,7 +73,11 @@ namespace Kata20170729_DeadAnts
 
         private static int DeadAntsCount(string ants)
         {
-            return ants.ToCharArray().Count(a => a == 'a');
+            var a = ants.Count(x => x == 'a');
+            var n = ants.Count(x => x == 'n');
+            var t = ants.Count(x => x == 't');
+
+            return (new[]{ a, n ,t }).Max();
         }
 
         private static string RemoveLiveAnts(string ants)
