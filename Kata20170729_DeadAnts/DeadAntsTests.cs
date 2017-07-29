@@ -66,23 +66,7 @@ namespace Kata20170729_DeadAnts
                 return 0;
             }
 
-            ants = RemoveLiveAnts(ants);
-
-            return DeadAntsCount(ants);
-        }
-
-        private static int DeadAntsCount(string ants)
-        {
-            var a = ants.Count(x => x == 'a');
-            var n = ants.Count(x => x == 'n');
-            var t = ants.Count(x => x == 't');
-
-            return (new[]{ a, n ,t }).Max();
-        }
-
-        private static string RemoveLiveAnts(string ants)
-        {
-            return ants.Replace("ant", "").Trim();
+            return "ant".Select(x => ants.Replace("ant", "").Count(a => a == x)).Max();
         }
     }
 }
