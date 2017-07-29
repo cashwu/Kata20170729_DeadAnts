@@ -12,6 +12,18 @@ namespace Kata20170729_DeadAnts
             AssertDeadAntCountShouldBe(null, 0);
         }
 
+        [TestMethod]
+        public void ant_ant_should_be_0()
+        { 
+            AssertDeadAntCountShouldBe("ant ant", 0);
+        }
+
+        [TestMethod]
+        public void ant_an_t_should_be_1()
+        {
+            AssertDeadAntCountShouldBe("ant an t", 1);
+        }
+
         private static void AssertDeadAntCountShouldBe(string ants, int expected)
         {
             var kata = new Kata();
@@ -24,7 +36,14 @@ namespace Kata20170729_DeadAnts
     {
         public int DeadAntCount(string ants)
         {
-            return 0;
+            if (string.IsNullOrWhiteSpace(ants))
+            {
+                return 0;
+            }
+
+            ants = ants.Replace("ant", "").Trim();
+
+            return ants.Length == 0 ? 0 : 1;
         }
     }
 }
