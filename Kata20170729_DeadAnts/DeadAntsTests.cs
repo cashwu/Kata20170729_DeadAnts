@@ -31,6 +31,18 @@ namespace Kata20170729_DeadAnts
             AssertDeadAntCountShouldBe("ant an t an t", 2);
         }
 
+        [TestMethod]
+        public void ant_anantt_aantnt_should_be_2()
+        {
+            AssertDeadAntCountShouldBe("ant anantt aantnt", 2);
+        }
+
+        [TestMethod]
+        public void ant_ant_a_nt_should_be_1()
+        {
+            AssertDeadAntCountShouldBe("ant ant .... a nt", 1);
+        }
+
         private static void AssertDeadAntCountShouldBe(string ants, int expected)
         {
             var kata = new Kata();
